@@ -21,8 +21,6 @@ def isScissor(choice):
         return True
 
 
-
-
 def getNumberResult(aiNumber):
 
     if isRock(aiNumber):
@@ -84,18 +82,18 @@ aiNumber = getNumber()
 score = 0
 compScore = 0
 
-numberOfPlays = int(input("How many rounds do you want to play?"))
-
-for n in range (numberOfPlays):
+##numberOfPlays = int(input("How many rounds do you want to play?"))
+##
+##for n in range (numberOfPlays):
+play=""
+while play != "q":
     aiNumber = getNumber()
 
     print("******----------******")
     print("Computer Score: %d" % compScore)
     print("Your score: %d" % score)
 
-    userChoice = input("Pick from the menu: \n1: Rock\n2: Paper\n3: Scissor\nPress 'Q' to quit\n")
-    if str(userChoice) == "Q":
-        break
+    userChoice = input("Pick from the menu: \n1: Rock\n2: Paper\n3: Scissor\n\n")
     userChoice = int(userChoice)
 
     print( "-----------------")
@@ -104,17 +102,25 @@ for n in range (numberOfPlays):
     getFinalResult(aiNumber, userChoice)
     
     if getNumberResult(aiNumber) == userChoice:
-        continue
+        score = score
+        #continue
     if getNumberResult(aiNumber) == 1 and userChoice == 2:
         score += 1
-        continue
+        #continue
     elif getNumberResult(aiNumber) == 2 and userChoice == 3:
         score += 1
-        continue
+        #continue
     elif getNumberResult(aiNumber) == 3 and userChoice == 1:
         score += 1
-        continue
+        #continue
     else:
         compScore += 1
-        continue
+        #continue
 
+    play = input("Do you want to play again? Press q to quit: ")
+
+
+print("******----------******")
+print("\n\n\nComputer Score: %d" % compScore)
+print("Your score: %d" % score)
+print("\n\n\n******----------******")
